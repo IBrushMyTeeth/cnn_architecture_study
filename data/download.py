@@ -14,10 +14,11 @@ a more reliable download experience.
 from pathlib import Path
 from datasets import load_dataset
 
-# Store the dataset inside the project directory so all scripts use the
+
+# Store the dataset inside the project/data directory so all scripts use the
 # same local cache.
-project_root = Path(__file__).resolve().parent
-cache_dir = project_root / "hf_cache"
+data_folder = Path(__file__).resolve().parent
+cache_dir = data_folder / "hf_cache"
 
 print("Downloading CIFAR-10...")
 dataset = load_dataset(
