@@ -120,3 +120,15 @@ def evaluate_confusion_matrix(
         all_labels,
         class_names=class_names,
     )
+
+def plot_learning_curves(histories: dict[str, list[float]]) -> None:
+    plt.figure(figsize=(7, 5))
+    for name, history in histories.items():
+        plt.plot(range(1, len(history) + 1), history, marker="o", label=name)
+    plt.title("Learning Curves by Transform")
+    plt.xlabel("Epoch")
+    plt.ylabel("Loss")
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
