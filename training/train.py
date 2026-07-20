@@ -7,10 +7,18 @@ models using the shared experiment configuration.
 
 
 import torch
+import random
+import numpy as np
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from training.config import CFG
 
+
+def set_seed(seed: int = 42):
+    """Set global seed to ensure reproducibility"""
+    torch.manual_seed(seed)
+    random.seed(seed)
+    np.random.seed(seed)
 
 def create_loader(
     data: Dataset,
