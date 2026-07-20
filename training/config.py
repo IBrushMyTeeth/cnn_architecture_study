@@ -16,7 +16,6 @@ class Config:
     batch_size: int = 64
 
     # Dataloader
-    shuffle: bool = True
     num_workers: int = 2
 
     # Reproducability

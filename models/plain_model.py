@@ -4,7 +4,7 @@
 import torch
 import torch.nn as nn
 from models.blocks.conv_block import ConvBlock
-from classifier import Classifier
+from models.classifier import Classifier
 
 
 class PlainCNN(nn.Module):

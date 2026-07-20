@@ -9,7 +9,7 @@ models using the shared experiment configuration.
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
-from config import CFG
+from training.config import CFG
 
 
 def create_loader(
