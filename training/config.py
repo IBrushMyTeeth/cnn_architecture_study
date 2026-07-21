@@ -11,7 +11,7 @@ from dataclasses import dataclass
 class Config:
     """Training configuration shared across all experiments."""
     # Optimization
-    epochs: int = 10
+    epochs: int = 20
     lr: float = 1e-3
     batch_size: int = 64
 
