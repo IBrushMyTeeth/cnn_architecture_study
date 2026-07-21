@@ -141,7 +141,7 @@ Possible explanations:
   problem.
 
 * Since the baseline model is intentionally simple (no BatchNorm, Dropout,
-  pooling, or residual connections), the additional variability introduced
+  , or residual connections), the additional variability introduced
   by augmentation may exceed the model's representational capacity.
 
 
