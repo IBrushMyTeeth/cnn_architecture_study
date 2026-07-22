@@ -3,7 +3,7 @@
 
 import torch
 import torch.nn as nn
-from models.blocks.conv_block import ConvBlock
+from models.blocks.minimal_conv_block import ConvBlock
 from models.classifier import Classifier
 
 
