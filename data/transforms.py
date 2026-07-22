@@ -23,7 +23,8 @@ STD = (0.2470, 0.2435, 0.2616)
 
 # Baseline preprocessing without data augmentation.
 basic_transform = Compose([
-    ToTensor(), Normalize(mean=MEAN, std=STD)
+    ToTensor(),
+    Normalize(mean=MEAN, std=STD)
 ])
 
 # Horizontal and vertical flipping only.
@@ -54,12 +55,6 @@ train_transform = Compose([
     # RandomVerticalFlip(0.5),
     RandomHorizontalFlip(p=0.5),
     ColorJitter(brightness=0.2, contrast=0.2),
-    ToTensor(),
-    Normalize(mean=MEAN, std=STD)
-])
-
-# Preprocessing applied during evaluation.
-test_transform = Compose([
     ToTensor(),
     Normalize(mean=MEAN, std=STD)
 ])

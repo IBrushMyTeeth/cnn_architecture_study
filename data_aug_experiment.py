@@ -8,7 +8,6 @@ from data.transforms import (
     crop_transform,
     color_transform,
     train_transform,
-    test_transform,
 )
 
 from training.train import create_loader, train, set_seed
@@ -39,7 +38,7 @@ def main():
     test_loader = create_loader(
         CIFAR10Dataset(
             dataset["test"],
-            transform=test_transform,
+            transform=basic_transform,
         ),
         shuffle=False,
     )
