@@ -17,23 +17,23 @@ class PlainCNN(nn.Module):
     feature learning within the convolutional backbone.
     """
     
-    def __init__(self) -> None:
+    def __init__(self, width: int = 8) -> None:
         super().__init__()
 
         self.features = nn.Sequential(
-            ConvBlock(3, 8),
-            ConvBlock(8, 8),
+            ConvBlock(3, width),
+            ConvBlock(width, width),
             nn.MaxPool2d(2),
 
-            ConvBlock(8, 8),
-            ConvBlock(8, 8),
+            ConvBlock(width, width),
+            ConvBlock(width, width),
             nn.MaxPool2d(2),
 
-            ConvBlock(8, 8),
-            ConvBlock(8, 8)
+            ConvBlock(width, width),
+            ConvBlock(width, width)
         )
 
-        self.classifier = Classifier(in_channels=8, num_classes=10)
+        self.classifier = Classifier(in_channels=width, num_classes=10)
     
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.features(x)

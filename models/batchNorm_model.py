@@ -17,23 +17,23 @@ class BatchNormCNN(nn.Module):
     convergence speed, and classification performance to be evaluated in
     isolation.
     """
-    def __init__(self) -> None:
+    def __init__(self, width: int = 8) -> None:
         super().__init__()
 
         self.features = nn.Sequential(
-            BNConvBlock(3, 8),
-            BNConvBlock(8, 8),
+            BNConvBlock(3, width),
+            BNConvBlock(width, width),
             nn.MaxPool2d(2),
 
-            BNConvBlock(8, 8),
-            BNConvBlock(8, 8),
+            BNConvBlock(width, width),
+            BNConvBlock(width, width),
             nn.MaxPool2d(2),
 
-            BNConvBlock(8, 8),
-            BNConvBlock(8, 8)
+            BNConvBlock(width, width),
+            BNConvBlock(width, width)
         )
 
-        self.classifier = Classifier(in_channels=8, num_classes=10)
+        self.classifier = Classifier(in_channels=width, num_classes=10)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.features(x)
