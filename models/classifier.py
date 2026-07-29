@@ -19,7 +19,12 @@ class Classifier(nn.Module):
         num_classes: Number of output classes.
     """
     
-    def __init__(self, in_channels: int, num_classes: int) -> None:
+    def __init__(
+            self,
+            in_channels: int,
+            num_classes: int,
+            dropout: float = 0.0
+    ) -> None:
         super().__init__()
 
         self.layers = nn.Sequential(
@@ -27,6 +32,7 @@ class Classifier(nn.Module):
             nn.Flatten(),
             nn.Linear(in_channels, 64),
             nn.ReLU(inplace=True),
+            nn.Dropout(dropout),
             nn.Linear(64, num_classes)
         )
     
